@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Calcular Rota com JSON</title>
+  <title>Calcular Rota com JSON (Controle de Segmentos)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- 1) Leaflet CSS (sem integridade para evitar bloqueios) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    crossorigin=""
+  />
 
+  <!-- 2) Seu CSS customizado -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <h2>Calcular Rota com JSON</h2>
+  <h2>Calcular Rota com JSON (Avançar e Voltar Segmentos)</h2>
 
   <p>Cole aqui o JSON das coordenadas no formato (latitude,longitude):</p>
   <pre>
@@ -33,13 +39,12 @@
 }
   </textarea>
 
-  <button id="btnCalcular">Calcular Rota e Exibir Resultados</button>
-
+  <button id="btnCalcular">Calcular Rota</button>
   <div id="erro"></div>
 
   <div id="resultado" style="display:none;">
     <h3>Resultado da Rota</h3>
-    <p><strong>Rota sem otimização (ordem original):</strong></p>
+    <p><strong>Rota sem otimização:</strong></p>
     <pre id="rotaSemOpt"></pre>
     <p><strong>Distância total sem otimização:</strong> <span id="distSemOpt"></span> km</p>
 
@@ -47,11 +52,20 @@
     <pre id="rotaOtimizada"></pre>
     <p><strong>Distância total otimizada:</strong> <span id="distOtim"></span> km</p>
 
+    <!-- 3) Controles de Navegação de Segmentos -->
+    <div class="controls">
+      <button id="btnAnterior" disabled>Anterior</button>
+      <button id="btnProximo" disabled>Próximo</button>
+    </div>
+
+    <!-- 4) Mapa -->
     <div id="map"></div>
   </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- 5) Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 
+  <!-- 6) Seu JS customizado -->
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

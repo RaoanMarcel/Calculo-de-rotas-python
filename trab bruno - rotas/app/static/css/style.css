@@ -1,3 +1,4 @@
+/* static/css/style.css */
 
 body {
   font-family: Arial, sans-serif;
@@ -38,19 +39,24 @@ textarea {
 
 button {
   display: inline-block;
-  padding: 12px 25px;
+  padding: 10px 20px;
   font-size: 16px;
-  background-color: #28a745;
+  cursor: pointer;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
+  margin-right: 10px;
   transition: background-color 0.2s ease-in-out;
-  margin-bottom: 20px;
 }
 
-button:hover {
-  background-color: #218838;
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
 }
 
 #resultado {
@@ -71,10 +77,16 @@ button:hover {
   font-weight: bold;
 }
 
+/* Controles de navegação */
+.controls {
+  margin: 10px 0;
+}
+
+/* Altura mínima para o Leaflet #map */
 #map {
-  height: 400px;
+  height: 400px;  /* essencial para o mapa aparecer */
   width: 100%;
   border: 2px solid #ccc;
-  border-radius: 6px;
-  margin-top: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
 }
