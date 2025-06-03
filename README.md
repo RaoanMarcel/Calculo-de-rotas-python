@@ -228,7 +228,7 @@ seu_projeto/
 
         L is not defined: Leaflet não carregou antes do app.js. Verifique a ordem das <script> em index.html.
 
-        Mapa não aparece (div height 0): confira se #map { height: 400px; } está presente e não foi sobrescrito.
+        Mapa não aparece (div height 0): confira se #map { height: 500px; } está presente e não foi sobrescrito.
 
         Botões não clicam: cheque se os IDs btnAnterior / btnProximo correspondem exatamente ao que está no JS (getElementById).
 
