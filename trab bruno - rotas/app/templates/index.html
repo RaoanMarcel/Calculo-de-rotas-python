@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mapa com Rota - OpenRouteService</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+<body>
+  <h2>Mapa com Rota - OpenRouteService</h2>
+  <div class="controls">
+    <button onclick="anteriorRota()">Anterior</button>
+    <button onclick="proximaRota()">Próximo</button>
+    <button onclick="iniciarRota()">Iniciar Rota</button>
+  </div>
+  <div id="map"></div>
+
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+</body>
+</html>
+
+
