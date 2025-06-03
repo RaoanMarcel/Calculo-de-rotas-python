@@ -1,0 +1,4 @@
+Flask==2.3.2
+Flask-Cors==3.0.10
+openrouteservice==2.3.0
+ortools==9.7.2996

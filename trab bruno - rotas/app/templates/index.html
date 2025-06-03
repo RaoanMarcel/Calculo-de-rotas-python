@@ -1,25 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Mapa com Rota - OpenRouteService</title>
+  <title>Calcular Rota com JSON</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-
 </head>
 <body>
-  <h2>Mapa com Rota - OpenRouteService</h2>
-  <div class="controls">
-    <button onclick="anteriorRota()">Anterior</button>
-    <button onclick="proximaRota()">Próximo</button>
-    <button onclick="iniciarRota()">Iniciar Rota</button>
+  <h2>Calcular Rota com JSON</h2>
+
+  <p>Cole aqui o JSON das coordenadas no formato (latitude,longitude):</p>
+  <pre>
+{
+  "coordenadas": [
+    [-23.55052, -46.633308],
+    [-23.555000, -46.639000],
+    [-23.558000, -46.635000]
+  ]
+}
+  </pre>
+
+  <textarea id="jsonInput">
+{
+  "coordenadas": [
+    [-23.55052, -46.633308],
+    [-23.555000, -46.639000],
+    [-23.558000, -46.635000]
+  ]
+}
+  </textarea>
+
+  <button id="btnCalcular">Calcular Rota e Exibir Resultados</button>
+
+  <div id="erro"></div>
+
+  <div id="resultado" style="display:none;">
+    <h3>Resultado da Rota</h3>
+    <p><strong>Rota sem otimização (ordem original):</strong></p>
+    <pre id="rotaSemOpt"></pre>
+    <p><strong>Distância total sem otimização:</strong> <span id="distSemOpt"></span> km</p>
+
+    <p><strong>Rota otimizada (Vizinho Mais Próximo):</strong></p>
+    <pre id="rotaOtimizada"></pre>
+    <p><strong>Distância total otimizada:</strong> <span id="distOtim"></span> km</p>
+
+    <div id="map"></div>
   </div>
-  <div id="map"></div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
-
-
