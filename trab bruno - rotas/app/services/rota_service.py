@@ -20,7 +20,7 @@ def encontrar_rota_vizinho_mais_proximo(pontos):
         return [], 0.0
 
     nao_visitados = set(range(1, n))
-    rota_indices = [0]  # sempre começamos pelo índice 0
+    rota_indices = [0] 
     while nao_visitados:
         ultimo = rota_indices[-1]
         proximo = min(
