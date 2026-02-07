@@ -240,16 +240,7 @@ seu_projeto/
 
         Exportar a rota otimizada em GeoJSON ou GPX para uso em GPS.
 
-📝 Licença
 
-Este projeto está disponível sob a MIT License.
-👨‍💻 Contribuições
-
-Pull requests são bem-vindos! Sinta-se à vontade para:
-
-    Ajustar estilos CSS.
-
-    Melhorar a lógica de navegação de segmentos (cache, taxa de atualização, exibir info de distância de cada segmento).
 
     Suporte a múltiplos perfis de transporte (ex.: walking, cycling no ORS).
 
